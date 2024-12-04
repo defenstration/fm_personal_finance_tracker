@@ -11,6 +11,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'beige100': "hsl(23, 6%, 57%",
       },
     },
   },
