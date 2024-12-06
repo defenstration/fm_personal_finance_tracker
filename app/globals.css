@@ -78,7 +78,7 @@ header, footer, main, section, article {
 body {
     font-family: 'Outfit', 'sans-serif';
     width: 100%;
-    height:100%;
+    min-height: 100dvh;
     min-width: 20rem;
     background-color:  hsl(var());
     line-height: 150%;
@@ -138,6 +138,15 @@ img {
 /*--------------------------------*/
 /* Styling                        */
 /*--------------------------------*/
+
+/* html {
+  height: 100%;
+} */
+
 #navbar {
   width: 20rem;
+}
+
+#nav-wrapper {
+  height: 50rem;
 }
