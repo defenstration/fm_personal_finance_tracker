@@ -9,3 +9,39 @@
 #nav-wrapper {
   height: 50rem;
 }
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  border: 1px solid red;
+}
+
+body {
+  display: grid;
+  grid-template-areas: 
+  "content"  
+  "navbar"
+  "attribution"
+  ;
+}
+
+@media (min-width: 1024px) {
+  body {
+    grid-template-columns: 20rem 1fr;
+    grid-template-areas: 
+    "navbar content"
+    "attribution attribution"
+    ;
+  }
+}
+
+#navbar {
+  grid-area: navbar;
+}
+
+#content {
+  grid-area: content;
+}
+
+#attribution {
+  grid-area: attribution;
+}
