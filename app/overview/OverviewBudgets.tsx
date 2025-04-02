@@ -1,4 +1,7 @@
 import DonutChart from "../components/DonutChart"
+import data from "@/lib/data.json"
+
+console.log(data)
 
 const budgetData = [
     { category: "Entertainment", amount: 50, color: "#1c9984" },

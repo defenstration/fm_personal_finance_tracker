@@ -67,7 +67,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
             <div className= 'space-y-2'>
                 {data.map((item) => (
                     <div key={item.category} className='flex items-center space-x-2'>
-                        <div className='w-2 h-2 rounded-full' style={{ backgroundColor: item.color }} />
+                        <div className='w-1 h-6 rounded-full' style={{ backgroundColor: item.color }} />
                         <span>{item.category}</span>
                         <span>${item.amount}</span>
                     </div>
