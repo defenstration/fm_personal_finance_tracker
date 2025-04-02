@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 #navbar {
   width: 20rem;
 }
@@ -12,7 +13,7 @@
 
 *, ::before, ::after {
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {

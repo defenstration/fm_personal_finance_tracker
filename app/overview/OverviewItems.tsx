@@ -7,7 +7,7 @@ import OverviewRecurring from "./OverviewRecurring";
 
 export default function OverviewItems () {
     return (
-        <section id = "overview-items grid gap-4 desktop:grid-cols-2">
+        <section id = "overview-items grid gap-4 desktop:grid-cols-2 p-10">
             <OverviewPots />
             <OverviewBudgets />
             <OverviewTransactions />

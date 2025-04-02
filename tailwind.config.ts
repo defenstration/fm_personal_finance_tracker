@@ -20,7 +20,6 @@ export default {
           300: "hsl(0, 0%, 70%)",
           500: "hsl(0, 0%, 41%)",
           900: "hsl(252, 7%, 13%)",
-          "navy": "hsl(214, 11%, 63%)"
         },
         "green" : "hsl(177, 52%, 32%)",
         "yellow": "hsl(28, 73%, 81%)",
@@ -38,40 +37,41 @@ export default {
         "army": "hsl(83, 20%, 47%)",
         "gold": "hsl(47, 50%, 59%)",
         "orange": "hsl(18, 47%, 52%)",
-        "white": "hsl(0, 0%, 100%)"
+        "white": "hsl(0, 0%, 100%)",
+        "navy-grey": "hsl(214, 11%, 63%)"
       },
       fontSize: {
-        1: ["2rem", {
+        typ1: ["2rem", {
           lineHeight: "120%",
           letterSpacing: "0px",
           fontWeight: "bold"
         }],
-        2: ["1.25rem", {
+        typ2: ["1.25rem", {
           lineHeight: "120%",
           letterSpacing: "0px",
           fontWeight: "bold"
         }],
-        3: ["1rem", {
+        typ3: ["1rem", {
           lineHeight: "150%",
           letterSpacing: "0px",
           fontWeight: "bold"
         }],
-        4: [".875rem", {
+        typ4: [".875rem", {
           lineHeight: "150%",
           letterSpacing: "0px",
-          fontWeight: "regular"
+          fontWeight: "normal"
         }],
-        "4b": [".875rem", {
+        typ4b: [".875rem", {
           lineHeight: "150%",
           letterSpacing: "0px",
           fontWeight: "bold"
         }],
-        5: [".75rem", {
+        typ5: [".75rem", {
           lineHeight: "150%",
           letterSpacing: "0px",
-          fontWeight: "regular"
+          fontWeight: "normal"
         }],
-        "5b": [".75rem", {
+        typ5b: [".75rem", {
           lineHeight: "150%",
           letterSpacing: "0px",
           fontWeight: "bold"
