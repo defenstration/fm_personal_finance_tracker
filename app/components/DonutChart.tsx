@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import {supabase} from '@/lib/supabaseClient'
 import * as d3 from 'd3'
 import LeftBar from './LeftBar'
 
