@@ -11,24 +11,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'beige': {
-          100: "hsl(30, 36%, 96%)",
-          500: "hsl(23, 6%, 57%)",
-        },
-        "grey": {
-          100: "hsl(0, 0%, 95%)",
-          300: "hsl(0, 0%, 70%)",
-          500: "hsl(0, 0%, 41%)",
-          900: "hsl(252, 7%, 13%)",
-        },
-        "green" : "hsl(177, 52%, 32%)",
+        'beige-100': "hsl(30, 36%, 96%)",
+        'beige-500': "hsl(23, 6%, 57%)",
+        "grey-100": "hsl(0, 0%, 95%)",
+        "grey-300": "hsl(0, 0%, 70%)",
+        "grey-500": "hsl(0, 0%, 41%)",
+        "grey-900": "hsl(252, 7%, 13%)",
+        "green": "hsl(177, 52%, 32%)",
         "yellow": "hsl(28, 73%, 81%)",
         "navy": "hsl(248, 8%, 41%)",
         "red": "hsl(7, 58%, 50%)",
-        "purple": {
-          1: "hsl(288, 29%, 62%)",
-          2: "hsl(259, 30%, 56%)"
-        },
+        "purple-1": "hsl(288, 29%, 62%)",
+        "purple-2": "hsl(259, 30%, 56%)",
         "cyan": "hsl(190, 52%, 68%)",
         "brown": "hsl(21, 30%, 44%)",
         "turquoise": "hsl(180, 16%, 42%)",

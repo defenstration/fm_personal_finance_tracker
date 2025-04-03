@@ -1,17 +1,13 @@
 interface LeftBarProps {
-    borderColor: string;
+    borderColor: string; // This should be a Tailwind bg color class like 'bg-green'
     children: React.ReactNode;
 }
 
 export default function LeftBar({borderColor, children}: LeftBarProps) {
     return (
-        <div className = "relative">
-            <div className = "absolute top-0 left-0 h-full">
-                <div className = {`w-1 h-full rounded-full ${borderColor}`}></div>
-            </div>
-            <div className = "pl-8">
-                {children}
-            </div>
+        <div className="relative pl-8">
+            <div className={`absolute left-0 top-0 h-full w-1 rounded-full ${borderColor}`} />
+            {children}
         </div>
     )
 }

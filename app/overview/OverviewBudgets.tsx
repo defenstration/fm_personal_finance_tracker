@@ -4,16 +4,19 @@ import data from "@/lib/data.json"
 console.log(data)
 
 const budgetData = [
-    { category: "Entertainment", amount: 50, color: "#1c9984" },
-    { category: "Bills", amount: 750, color: "#96d3e2" },
-    { category: "Dining Out", amount: 75, color: "#f3d6b1" },
-    { category: "Personal Care", amount: 100, color: "#6a6378" },
+    { category: "Entertainment", amount: 50, color: "#277C78" },
+    { category: "Bills", amount: 750, color: "#82C9D7" },
+    { category: "Dining Out", amount: 75, color: "#F2CDAC" },
+    { category: "Personal Care", amount: 100, color: "#626070" },
 ];
 
 export default function OverviewBudgets() {
     return (
-        <section id = "overview-budgets" className = 'w-[clamp(300px, 90%, 400px)]'>
-            <h3>Overview Budgets</h3>
+        <section id="overview-budgets" className='w-[clamp(300px, 90%, 400px)]'>
+            <div className="flex justify-between">
+                <h3 className='text-typ3'>Budgets</h3>
+                <div>See Details</div>
+            </div>
             <DonutChart data={budgetData} totalBudget={975} currentSpend={500} />
         </section>
     )
