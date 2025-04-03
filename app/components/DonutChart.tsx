@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
+import LeftBar from './LeftBar'
 
 interface BudgetItem {
     category: string
@@ -67,9 +68,11 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
             <div className= 'space-y-2'>
                 {data.map((item) => (
                     <div key={item.category} className='flex items-center space-x-2'>
-                        <div className='w-2 h-2 rounded-full' style={{ backgroundColor: item.color }} />
-                        <span>{item.category}</span>
-                        <span>${item.amount}</span>
+                        <div className='w-1 h-6 rounded-full' style={{ backgroundColor: item.color }} />
+                        <LeftBar borderColor={item.color}>
+                            <span>{item.category}</span>
+                            <span>${item.amount}</span>
+                        </LeftBar>
                     </div>
                 ))}
             </div>
