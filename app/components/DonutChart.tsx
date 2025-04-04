@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import LeftBar from './LeftBar'
 import {Budget} from '../hooks/useBudgets'
+import GetTailwindColor from './GetTailwindColor'
 
 interface DonutChartProps {
     data: Budget[]
@@ -62,17 +63,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
 
     }, [data, totalBudget, currentSpend])
 
-    function getTailwindColor(hex: string) {
-        const colorMap: Record<string, string> = {
-            '#277C78': 'bg-green',      // Teal color
-            '#82C9D7': 'bg-cyan',       // Light blue
-            '#F2CDAC': 'bg-yellow',     // Light orange/beige
-            '#626070': 'bg-grey-500',   // Grey
-            '#826CB0': 'bg-purple-1'    // Purple
-        }
 
-        return colorMap[hex] || 'bg-grey-500'
-    }
 
     return (
         <div className='flex items-center space-x-6'>
@@ -80,7 +71,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
             <div className='space-y-2'>
                 {data.map((item) => (
                     <div key={item.id}>
-                        <LeftBar borderColor={getTailwindColor(item.theme)}>
+                        <LeftBar borderColor={GetTailwindColor(item.theme)}>
                             <span>{item.category}</span>
                             <span>${item.maximum.toFixed(2)}</span>
                         </LeftBar>
