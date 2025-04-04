@@ -18,7 +18,9 @@ export default function OverviewRecurring() {
     }
     
     const paidBillstotal = recurringTransactions.filter(transaction => transaction.category === 'Bills' && new Date(transaction.date) < new Date()).reduce((sum, transaction) => sum - transaction.amount, 0)
+
     const upcomingBillsTotal = recurringTransactions.filter(transaction => transaction.category === 'Bills' && new Date(transaction.date) >= new Date()).reduce((sum, transaction) => sum + transaction.amount, 0)
+    
     const dueSoonBillsTotal = recurringTransactions.filter(transaction => {
         const dueDate = new Date(transaction.date)
         const today = new Date()
@@ -30,9 +32,20 @@ export default function OverviewRecurring() {
     return (
         <section id = "overview-recurring-bills" className = 'w-[clamp(300px, 90%, 400px)]'>
             <h3>Overview Recurring Bills</h3>
-            <p>${paidBillstotal}</p>
-            <p>${upcomingBillsTotal}</p>
-            <p>${dueSoonBillsTotal}</p>
+            <div className = 'flex flex-col gap-2'>
+                <div className = 'flex items-center gap-2'>
+                    <p>Paid</p>
+                    <p>${paidBillstotal}</p>
+                </div>
+                <div className = 'flex items-center gap-2'>
+                    <p>Upcoming</p>
+                    <p>${upcomingBillsTotal}</p>
+                </div>
+                <div className = 'flex items-center gap-2'>
+                    <p>Due Soon</p>
+                    <p>${dueSoonBillsTotal}</p>
+                </div>
+            </div>
         </section>
     )
 }
