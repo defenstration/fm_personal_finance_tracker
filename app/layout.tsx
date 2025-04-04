@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import Navbar from "./components/Navbar"
-import Attribution from "./components/Attribution";
-import localFont from "next/font/local";
 import "./globals.css";
-
+import QueryProvider from './providers/QueryProvider'
+import ClientWrapper from './components/ClientWrapper'
 
 export const metadata: Metadata = {
   title: "Frontend Mentor Personal Finance App Solution by Defenstration",
-  description: "Solution for the personal finance challend on Frontend Mentor.",
+  description: "Solution for the personal finance challenge on Frontend Mentor.",
 };
 
 export default function RootLayout({
@@ -18,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {children}
-        <Attribution />
+        <QueryProvider>
+          <ClientWrapper>
+            {children}
+          </ClientWrapper>
+        </QueryProvider>
       </body>
     </html>
   );

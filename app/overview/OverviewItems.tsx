@@ -1,9 +1,9 @@
+'use client'
+
 import OverviewPots from "./OverviewPots";
 import OverviewBudgets from "./OverviewBudgets";
 import OverviewTransactions from "./OverviewTransactions";
 import OverviewRecurring from "./OverviewRecurring";
-
-
 
 export default function OverviewItems () {
     return (

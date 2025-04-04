@@ -1,3 +1,5 @@
+'use client'
+
 import Balances from "./overview/Balances";
 import OverviewItems from "./overview/OverviewItems";
 

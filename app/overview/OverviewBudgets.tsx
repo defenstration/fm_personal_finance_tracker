@@ -1,57 +1,34 @@
 'use client'
 
 import DonutChart from "../components/DonutChart"
-import data from "@/lib/data.json"
-import { supabase } from "@/lib/supabaseClient"
-import { useEffect, useState } from "react"
-
-interface BudgetData {
-    category: string
-    amount: number
-    color: string
-}
-
-interface budgets {
-    id: string
-    name: string
-    maximum: number
-    theme: string
-}
-
-const budgetData: BudgetData[] = [
-    { category: "Entertainment", amount: 50, color: "#277C78" },
-    { category: "Bills", amount: 750, color: "#82C9D7" },
-    { category: "Dining Out", amount: 75, color: "#F2CDAC" },
-    { category: "Personal Care", amount: 100, color: "#626070" },
-];
+import {useBudgets, useTotalBudgetSpend} from "../hooks/useBudgets"
+import {Skeleton} from "@/components/ui/skeleton"
 
 export default function OverviewBudgets() {
-    const [budgets, setBudgets] = useState<budgets[]>([])
-    const [totalBudget, setTotalBudget] = useState(0)
-    const [currentSpend, setCurrentSpend] = useState(0)
-    const [loading, setLoading] = useState(true)
+    const {data: budgets, isLoading, error} = useBudgets({limit: 5})
+    const budgetIds = budgets?.map(budget => budget.id) || []
+    const {data: currentSpend = 0} = useTotalBudgetSpend(budgetIds)
 
-    useEffect(() => {
-        async function fetchBudgets() {
-            try {
-                const {data, error} = await supabase
-                    .from('budgets')
-                    .select('*')
+    if (isLoading) {
+        return (
+        <section id="overview-budgets" className='w-[clamp(300px, 90%, 400px)]'>
+            <div className="flex justify-between">
+                <Skeleton className='w-24 h-4 rounded-lg' />
+                <Skeleton className='w-24 h-4 rounded-lg' />
+            </div>
+            <Skeleton className="w-full h-[200px] rounded-lg" />
+        </section>           
+        )
+    }
 
-                    if (error) throw error
-                    setBudgets(data)
-                    setTotalBudget(data.reduce((acc, budget) => acc + budget.maximum, 0))
-            } catch (error) {
-                console.error('Error fetching budgets:', error)
-            } finally {
-                setLoading(false)
-            }
-        }
-        fetchBudgets()
-    }, [])
+    if (error || !budgets) {
+        return (
+            <div>Error loading budgets</div>
+        )
+    }
 
-    console.log(budgets)
-    
+    const totalBudget = budgets.reduce((sum, budget) => sum + budget.maximum, 0)
+
     return (
         <section id="overview-budgets" className='w-[clamp(300px, 90%, 400px)]'>
             <div className="flex justify-between">
