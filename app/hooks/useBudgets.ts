@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabaseClient'
 
 export interface Budget {
     id: string
-    name: string
+    category: string
     maximum: number
     theme: string
 }
@@ -20,7 +20,7 @@ export function useBudgets({ limit = 10, offset = 0 }: UseBudgetOptions = {}) {
             const {data, error} = await supabase
                 .from('budgets')
                 .select('*')
-                .order('created_at', { ascending: false })
+                .order('id', { ascending: false })
                 .range(offset, offset + limit - 1)
 
             if (error) {
@@ -62,7 +62,10 @@ export function useBudgetStats(budgetId: string) {
                 .gte('date', startOfMonth.toISOString())
                 .lt('date', now.toISOString())
 
-            if (error) throw error
+            if (error) {
+                console.error('Supabase error:', error)
+                throw error
+            }
 
             return {
                 currentSpend: data.reduce((sum, tx)=> sum + tx.amount, 0)
@@ -82,11 +85,14 @@ export function useTotalBudgetSpend(budgetIds: string[]) {
             const {data, error} = await supabase
                 .from('transactions')
                 .select('amount')
-                .in('budget_id', budgetIds)
+                .in('id', budgetIds)
                 .gte('date', startOfMonth.toISOString())
                 .lt('date', now.toISOString())
 
-            if (error) throw error
+            if (error) {
+                console.error('Supabase error:', error)
+                throw error
+            }
 
             return data.reduce((sum, tx) => sum + tx.amount, 0)
         },

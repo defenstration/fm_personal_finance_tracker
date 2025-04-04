@@ -62,16 +62,16 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
 
     }, [data, totalBudget, currentSpend])
 
-    // Convert hex color to Tailwind color class
-    const getTailwindColor = (hex: string) => {
-        // This is a simple mapping - you might want to expand this
-        const colorMap: { [key: string]: string } = {
-            '#277C78': 'bg-teal-600',
-            '#82C9D7': 'bg-cyan-400',
-            '#F2CDAC': 'bg-orange-200',
-            '#626070': 'bg-gray-500'
+    function getTailwindColor(hex: string) {
+        const colorMap: Record<string, string> = {
+            '#277C78': 'bg-green',      // Teal color
+            '#82C9D7': 'bg-cyan',       // Light blue
+            '#F2CDAC': 'bg-yellow',     // Light orange/beige
+            '#626070': 'bg-grey-500',   // Grey
+            '#826CB0': 'bg-purple-1'    // Purple
         }
-        return colorMap[hex] || 'bg-gray-500'
+
+        return colorMap[hex] || 'bg-grey-500'
     }
 
     return (
@@ -81,7 +81,7 @@ const DonutChart: React.FC<DonutChartProps> = ({ data, totalBudget, currentSpend
                 {data.map((item) => (
                     <div key={item.id}>
                         <LeftBar borderColor={getTailwindColor(item.theme)}>
-                            <span>{item.name}</span>
+                            <span>{item.category}</span>
                             <span>${item.maximum.toFixed(2)}</span>
                         </LeftBar>
                     </div>
